@@ -1,3 +1,90 @@
 body{
     background-color: antiquewhite;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#startup{
+    justify-self: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+}
+
+#player{
+    padding:20px;
+}
+
+#buttons{
+    
+}
+
+#Xs, #Os{
+    font-size: xx-large;
+    font-weight: 900;
+    height:50px;
+    width:50px
+}
+
+
+#game{
+    display: flex;
+    justify-content: center;
+    height:85vh;
+    align-items: center;
+}
+
+#gameboard{
+    align-self: center;
+    justify-self: center;
+    display:grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#gameboard>div{
+    width: 100px;
+    height: 100px;
+}
+
+.cell{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:72px;
+    font-weight: 800;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#one{
+    border-bottom: 2px solid black;
+    border-right:2px solid black;
+}
+#two{
+    border-bottom: 2px solid black;
+    border-right:2px solid black;
+}
+#three{
+    border-bottom: 2px solid black;
+}
+#four{
+    border-bottom: 2px solid black;
+    border-right:2px solid black;
+}
+#five{
+    border-bottom: 2px solid black;
+    border-right:2px solid black;
+}
+#six{
+    border-bottom: 2px solid black;
+
+}
+#seven{
+    border-right:2px solid black;
+}
+#eight{
+    border-right:2px solid black;
 }
