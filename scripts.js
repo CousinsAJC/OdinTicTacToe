@@ -36,8 +36,7 @@ const GameManager = function(){
 
     playagainbutton.addEventListener('click', (e)=>{
         clearCells();
-
-        startgame.style.display = "block";
+        currentturn.style.display="block";
 
         gamewin.style.display = "none";
 
