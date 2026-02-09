@@ -36,7 +36,6 @@ const GameManager = function(){
 
     playagainbutton.addEventListener('click', (e)=>{
         clearCells();
-
         startgame.style.display = "block";
         startgame.style.visibility = "visible";
         gamewin.style.display = "none";
@@ -203,7 +202,7 @@ const GameManager = function(){
             winner.textContent = `${players[1].name} wins!`;
             currentturn.style.display="none";
             currentturn.style.visibility = "hidden";
-            gamewin.style.display="block";
+            gamewin.style.display = "block";
             gamewin.style.visibility = "visible";
             startover.style.display = "none";
             startover.style.visibility = "hidden";

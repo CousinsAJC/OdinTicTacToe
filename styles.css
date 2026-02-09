@@ -7,6 +7,18 @@ body{
     font-size: 24px;
 }
 
+.hide * {
+    visibility: hidden;
+    display:none;
+    height:0px;
+    width:0px;
+}
+
+.reveal * {
+    display:contents;
+    visibility: visible;
+}
+
 #startup, #entername, #startgame, #currentturn, #gamewin{
     justify-self: center;
     display:flex;
