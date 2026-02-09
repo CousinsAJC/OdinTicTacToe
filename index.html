@@ -9,12 +9,36 @@
 </head>
 <body>
     <div id="startup">
-        <text id="player">Player 1</text>
+        <text id="player">Player 1, please choose <em><strong>X</strong></em> or <em><strong>O</strong></em></text>
         <div id="buttons">
             <button id="Xs">X</button>
             <button id ="Os">O</button>
         </div>
     </div>
+
+    <div id="entername">
+        <label>Name:</label>
+        <input id="name" type="text">
+        <button id="namebutton">Player 1, enter name</button>
+    </div>
+
+    <div id="startgame">
+        <button id="startbutton" class="player1">Start Game</button>
+    </div>
+
+    <div id="currentturn">
+        
+    </div>
+
+    <div id="gamewin">
+        <text id="winner"></text>
+        <button id="playagain">Play Again?</button>
+    </div>
+
+    <div id="startover">
+        <button id="startoverbutton">Start Over?</button>
+    </div>
+
     
     <div id="game">
         <div id="gameboard">
@@ -30,6 +54,8 @@
         <div id="eight" class="cell"></div>
         <div id="nine" class="cell"></div>
     </div>
+
+
     
 </body>
 </html>

@@ -3,15 +3,23 @@ body{
     display:flex;
     flex-direction: column;
     justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
 }
 
-#startup{
+#startup, #entername, #startgame, #currentturn, #gamewin{
     justify-self: center;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 10vh;
+    text-align: center;
+    padding: 30px;
+}
+
+#currentturn{
+    font-size: 64px;
 }
 
 #player{
@@ -84,4 +92,30 @@ body{
 }
 #eight{
     border-right:2px solid black;
+}
+
+#startover{
+    padding:5px;
+    position:absolute;
+    top: 0px;
+    right: 0px;
+}
+#startoverbutton{
+    height:40px;
+    width:100px;
+    background-color: cornflowerblue;
+    color: whitesmoke;
+    border-radius: 5px;
+    border: none;
+}
+
+button{
+    height:40px;
+    width:100px;
+    background-color: cornflowerblue;
+    color: whitesmoke;
+    border-radius: 5px;
+    border: none;
+    align-items: center;
+    justify-self: center;
 }
