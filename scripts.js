@@ -38,6 +38,7 @@ const GameManager = function(){
         clearCells();
 
         startgame.style.display = "block";
+        startgame.style.visibility = "visible";
         gamewin.style.display = "none";
         gamewin.style.visibility = "hidden";
         win = false;
@@ -47,6 +48,7 @@ const GameManager = function(){
     startoverbutton.addEventListener('click', (e)=>{
         clearCells();
         startgame.style.display = "block";
+        startgame.style.visibility = "visible";
         gamewin.style.display = "none";
         gamewin.style.visibility = "hidden";
         win = false;
@@ -65,6 +67,7 @@ const GameManager = function(){
             entername.style.display = "none";
             entername.style.visibility = "hidden";
             startgame.style.display = "block";
+            startgame.style.visibility = "visible";
         }
     });
     
@@ -73,10 +76,12 @@ const GameManager = function(){
         activePlayer = players[0];
         turn = "player1";
         currentturn.style.display = "block";
+        currentturn.style.visibility = "visible";
         currentturn.textContent = `${players[0].name}'s Turn`;
         startgame.style.display = "none";
         startgame.style.visibility = "hidden";
         startover.style.display = "block";
+        startover.style.visibility = "visible";
     });
 
 
@@ -123,6 +128,7 @@ const GameManager = function(){
         startup.style.display="none";
         startup.style.visibility = "hidden";
         entername.style.display = "block";
+        entername.style.visibility = "visible";
         console.log(players[0].sign, players[1].sign);
         nameinput.focus();
     }
@@ -139,12 +145,14 @@ const GameManager = function(){
             activePlayer = players[1];
             currentturn.textContent = `${players[1].name}'s turn`
             startover.style.display = "block";
+            startover.style.visibility = "visible";
         } else {
             body.style.backgroundColor="AntiqueWhite"
             turn = 'player1';
             activePlayer = players[0];
             currentturn.textContent = `${players[0].name}'s turn`;
             startover.style.display = "block";
+            startover.style.visibility = "visible";
         }
     }
 
@@ -187,7 +195,8 @@ const GameManager = function(){
             winner.textContent = `${players[0].name} wins!`;
             currentturn.style.display="none";
             currentturn.style.visibility = "hidden";
-            gamewin.style.display="block";
+            gamewin.style.display = "block";
+            gamewin.style.visibility = "visible";
             startover.style.display = "none";
             startover.style.visibility = "hidden";
         } else{
@@ -195,6 +204,7 @@ const GameManager = function(){
             currentturn.style.display="none";
             currentturn.style.visibility = "hidden";
             gamewin.style.display="block";
+            gamewin.style.visibility = "visible";
             startover.style.display = "none";
             startover.style.visibility = "hidden";
         }
