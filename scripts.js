@@ -1,81 +1,116 @@
-const body = document.querySelector("body");
-const startup = document.getElementById('startup');
-const xButton = document.getElementById('Xs');
-const oButton = document.getElementById('Os');
-const players = [];
-const cells = [];
-console.log(cells);
-const length = cells.length;
-let turn = true;
+const GameManager = function(){
+    //  --ASSIGN DOM ELEMENTS
+    const body = document.querySelector("body");
+    const startup = document.getElementById('startup');
+    const xButton = document.getElementById('Xs');
+    const oButton = document.getElementById('Os');
+    const players = [];
+    let turn = 'player1';
+    let activePlayer = null;
+    let win = false;
+    let cells = document.querySelectorAll('.cell');
 
-const playerstext = document.getElementById('player');
+    //  --SET BOARD FOR ACCEPTING CLICKS
+    cells.forEach(element =>{
+        element.addEventListener('click', (e)=>{
+            let empty = checkForError(e.target);
+            if(empty == true){
+                element.textContent = `${activePlayer.sign}`;
+                win = checkForWin(activePlayer.sign);
+                if (win == true){
+                    endGame(activePlayer.sign, win);
+                    
+                } else {
+                    changeTurns(e.target);
+                }
+            }            
+        });
+    });
 
+    //  -PLAYER1 CHOOSES X OR O
+    xButton.addEventListener('click', (e) =>{
+        choosePlayerSymbol(e.target, players);
+    });
 
-xButton.addEventListener('click', (e) =>{
-    choosePlayerSymbol(e.target);
-});
+    oButton.addEventListener('click', (e) =>{
+        choosePlayerSymbol(e.target, players);
+    });
 
-oButton.addEventListener('click', (e) =>{
-    choosePlayerSymbol(e.target);
-});
-
-
-const Gameboard = (()=>{
-    cells[0] = document.getElementById('one');
-    console.log(cells[0]);
-    const two = document.getElementById('two');
-    const three = document.getElementById('three');
-    const four = document.getElementById('four');
-    const five = document.getElementById('five');
-    const six = document.getElementById('six');
-    const seven = document.getElementById('seven');
-    const eight = document.getElementById('eight');
-    const nine = document.getElementById('nine');
-});
-
-
-const gameWin = (symbol)=>{
-
-    //check for Xs
-    //check for Os
-}
-
-function Player(sign) {
-    this.sign = sign;
-}
-
-function choosePlayerSymbol(sign){
-    let p1 = sign.textContent;
-    let p2 = null;
-    if (sign.textContent == "X"){
-        p2 = "O";
-    } else {
-        p2 = "X";
+    function choosePlayerSymbol(sign, players){
+        let p1 = sign.textContent;
+        let p2 = null;
+        if (sign.textContent == "X"){
+            p2 = "O";
+        } else {
+            p2 = "X";
+        }
+        players.push(new Player(p1));
+        players.push(new Player(p2));
+        startup.style.display="none";
+        console.log(players[0].sign, players[1].sign);
+        activePlayer = players[0];
+        turn = "player1";
     }
-    players.push(new Player(p1));
-    players.push(new Player(p2))
-    startup.style.display="none";
-    console.log(players[0].sign, players[1].sign);
-}
 
-const gameManager = function(players){
-    if (turn == true){
-        body.style.backgroundColor = "antiquewhite";
-    } else {
-        body.style.backgroundColor = "blanchedalmond";
+    function Player(sign) {
+        this.sign = sign;
+    }
+
+    function changeTurns(cell) {
+        if (turn=='player1'){
+            body.style.backgroundColor="blanchedAlmond"
+            turn='player2';
+            activePlayer = players[1];
+        } else {
+            body.style.backgroundColor="AntiqueWhite"
+            turn = 'player1';
+            activePlayer = players[0];
+        }
+    }
+
+    function checkForError(cell){
+        if(cell.textContent == ""){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    const checkForWin = (s)=>{
+        if (cells[0].textContent == s && 
+            ((cells[1].textContent == s && cells[2].textContent == s) || 
+            (cells[3].textContent == s && cells[6].textContent == s) ||
+            (cells[4].textContent == s && cells[8].textContent == s))){
+                return true;
+        } else if (cells[1].textContent == s && 
+                cells[4].textContent == s &&
+                cells[7].textContent == s){
+            return true;       
+        } else if (cells[2].textContent == s &&
+                ((cells[4].textContent==s && cells[6].textContent==s) ||
+                (cells[5].textContent==s && cells[8].textContent==s))){
+            return true;
+        } else if (cells[3].textContent==s && 
+                cells[4].textContent==s &&
+                cells[5].textContent==s){
+            return true;
+        } else if (cells[6].textContent==s && 
+            cells[7].textContent==s && cells[8].textContent==s){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    const endGame = (active) =>{
+        if (turn=="player1"){
+            alert("Player 1 Wins!");
+        } else{
+            alert("Player 2 Wins!");
+        }
+        win = false;
     }
 }
 
-function addClicks(){
-    for (i=0;i<length;i++){
-        cells[i].addEventListener('click', e =>{
-            if (turn == true){
-                cells[i].textContent = players[0].sign;
-                turn = false;
-            } else {
-                cells[i].textContent = players[1].sign;
-                turn=true;
-            }
-        })
-    }
-}
+
+gameManager = GameManager();
