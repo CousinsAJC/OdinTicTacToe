@@ -37,17 +37,15 @@ const GameManager = function(){
     playagainbutton.addEventListener('click', (e)=>{
         clearCells();
         currentturn.style.display="block";
-
+        startgame.style.display = "none";
         gamewin.style.display = "none";
-
         win = false;
-
     });
 
     startoverbutton.addEventListener('click', (e)=>{
         clearCells();
-        startgame.style.display = "block";
-
+        startgame.style.display = "none";
+        currentturn.style.display = "block";
         gamewin.style.display = "none";
 
         win = false;
