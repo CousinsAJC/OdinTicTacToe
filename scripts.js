@@ -12,23 +12,23 @@ const GameManager = function(){
 
     const entername = document.getElementById('entername');
     entername.style.display = "none";
-    entername.style.visibility = "hidden";
+
     const startgame = document.getElementById('startgame');
     startgame.style.display = "none";
-    startgame.style.visibility = "hidden";
+
     const startbutton = document.getElementById('startbutton');
     const currentturn = document.getElementById('currentturn');
     currentturn.style.display = "none";
-    currentturn.style.visibility = "hidden";
+
     const namebutton = document.getElementById('namebutton');
     const nameinput = document.getElementById('name'); 
 
     const gamewin = document.getElementById('gamewin');
     gamewin.style.display = "none";
-    gamewin.style.visibility = "hidden";
+
     const startover = document.getElementById('startover');
     startover.style.display = "none";
-    startover.style.visibility = "hidden";
+
     const winner = document.getElementById('winner');
 
     const startoverbutton = document.getElementById('startoverbutton');
@@ -36,10 +36,11 @@ const GameManager = function(){
 
     playagainbutton.addEventListener('click', (e)=>{
         clearCells();
+
         startgame.style.display = "block";
-        startgame.style.visibility = "visible";
+
         gamewin.style.display = "none";
-        gamewin.style.visibility = "hidden";
+
         win = false;
 
     });
@@ -47,9 +48,9 @@ const GameManager = function(){
     startoverbutton.addEventListener('click', (e)=>{
         clearCells();
         startgame.style.display = "block";
-        startgame.style.visibility = "visible";
+
         gamewin.style.display = "none";
-        gamewin.style.visibility = "hidden";
+
         win = false;
     });
 
@@ -64,9 +65,9 @@ const GameManager = function(){
             players[1].name = nameinput.value;
             nameinput.value = "";
             entername.style.display = "none";
-            entername.style.visibility = "hidden";
+
             startgame.style.display = "block";
-            startgame.style.visibility = "visible";
+
         }
     });
     
@@ -75,12 +76,12 @@ const GameManager = function(){
         activePlayer = players[0];
         turn = "player1";
         currentturn.style.display = "block";
-        currentturn.style.visibility = "visible";
+
         currentturn.textContent = `${players[0].name}'s Turn`;
         startgame.style.display = "none";
-        startgame.style.visibility = "hidden";
+
         startover.style.display = "block";
-        startover.style.visibility = "visible";
+
     });
 
 
@@ -125,9 +126,9 @@ const GameManager = function(){
         players.push(new Player(p1, name1));
         players.push(new Player(p2, name2));
         startup.style.display="none";
-        startup.style.visibility = "hidden";
+
         entername.style.display = "block";
-        entername.style.visibility = "visible";
+
         console.log(players[0].sign, players[1].sign);
         nameinput.focus();
     }
@@ -144,14 +145,14 @@ const GameManager = function(){
             activePlayer = players[1];
             currentturn.textContent = `${players[1].name}'s turn`
             startover.style.display = "block";
-            startover.style.visibility = "visible";
+
         } else {
             body.style.backgroundColor="AntiqueWhite"
             turn = 'player1';
             activePlayer = players[0];
             currentturn.textContent = `${players[0].name}'s turn`;
             startover.style.display = "block";
-            startover.style.visibility = "visible";
+
         }
     }
 
@@ -193,19 +194,15 @@ const GameManager = function(){
         if (turn=="player1"){
             winner.textContent = `${players[0].name} wins!`;
             currentturn.style.display="none";
-            currentturn.style.visibility = "hidden";
-            gamewin.style.display = "block";
-            gamewin.style.visibility = "visible";
+            gamewin.style.display="block";
             startover.style.display = "none";
-            startover.style.visibility = "hidden";
+
         } else{
             winner.textContent = `${players[1].name} wins!`;
             currentturn.style.display="none";
-            currentturn.style.visibility = "hidden";
-            gamewin.style.display = "block";
-            gamewin.style.visibility = "visible";
+            gamewin.style.display="block";
             startover.style.display = "none";
-            startover.style.visibility = "hidden";
+
         }
         win = false;
     }
