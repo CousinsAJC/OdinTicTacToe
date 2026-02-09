@@ -12,33 +12,27 @@ const GameManager = function(){
 
     const entername = document.getElementById('entername');
     entername.style.display = "none";
-
     const startgame = document.getElementById('startgame');
     startgame.style.display = "none";
-
     const startbutton = document.getElementById('startbutton');
     const currentturn = document.getElementById('currentturn');
     currentturn.style.display = "none";
-
     const namebutton = document.getElementById('namebutton');
     const nameinput = document.getElementById('name'); 
-
     const gamewin = document.getElementById('gamewin');
     gamewin.style.display = "none";
-
     const startover = document.getElementById('startover');
     startover.style.display = "none";
-
     const winner = document.getElementById('winner');
-
+    winner.style.display = "none";
     const startoverbutton = document.getElementById('startoverbutton');
     const playagainbutton = document.getElementById('playagain');
-
     playagainbutton.addEventListener('click', (e)=>{
         clearCells();
         currentturn.style.display="block";
         startgame.style.display = "none";
         gamewin.style.display = "none";
+        winner.style.display = "none";
         win = false;
     });
 
@@ -76,7 +70,6 @@ const GameManager = function(){
 
         currentturn.textContent = `${players[0].name}'s Turn`;
         startgame.style.display = "none";
-
         startover.style.display = "block";
 
     });
